@@ -16,13 +16,13 @@ const SearchBar = ({onSubmit}) => {
     return (
         <form className='flex gap-2 items-center' onSubmit={submitHandler}>
             <input
-                className='py-2 px-4 rounded-md w-[300px]'
+                className='shadow appearance-none border rounded w-[400px] h-[40px] py-2 px-4 text-gray-700 leading-tight focus:border-blue-700 focus:outline-none focus:shadow-outline'
                 value={query}
                 placeholder='What are you looking for?'
                 type="text"
                 onChange={inputChangeHandler}
             />
-            <button className='py-2 px-4 bg-violet-600 rounded-md text-white hover:bg-violet-500'>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
                 Search
             </button>
         </form>
