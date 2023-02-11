@@ -16,7 +16,7 @@ export const getImagesAsync = createAsyncThunk(
     async (_, thunkAPI) =>  {
         const dispatch = thunkAPI.dispatch
         const state = thunkAPI.getState()
-        const data = await ImagesService.getAll(state.images.query, state.images.currentPage)
+        const data = await ImagesService.get(state.images.query, state.images.currentPage)
         const totalCountPages = Math.ceil(data.totalHits / state.images.limitPerPage)
         dispatch(setTotalPageCount(totalCountPages))
         return data.hits
@@ -51,6 +51,7 @@ export const imagesSlice = createSlice({
                 state.isLoading = false
             })
             .addCase(getImagesAsync.rejected, (state) => {
+                state.isLoading = false
                 state.isError = true
             })
     }

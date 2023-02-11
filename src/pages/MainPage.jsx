@@ -34,8 +34,12 @@ const MainPage = () => {
             <div className='flex items-center justify-center h-[200px]'>
                 <SearchBar onSubmit={loadNewImages} initialQuery={query} />
             </div>
-            <Gallery images={images} />
-            <Pagination onPageChange={handlePageChange} currentPage={currentPage} totalPageCount={totalPageCount} />
+            {images && images.length > 0 && <Gallery images={images}/>}
+            {
+                totalPageCount > 1
+                &&
+                <Pagination onPageChange={handlePageChange} currentPage={currentPage} totalPageCount={totalPageCount} />
+            }
         </>
     );
 };
