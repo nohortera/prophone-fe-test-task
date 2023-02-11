@@ -38,8 +38,6 @@ const ImageInfoPage = () => {
         ]
     }, [image])
 
-    console.log(imageInfo)
-
     if (isError) {
         return <h1 className='text-red-800 text-center'>Something went wrong...</h1>
     }
